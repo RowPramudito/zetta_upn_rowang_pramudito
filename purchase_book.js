@@ -11,8 +11,8 @@ function book_purchase(title, price, discount, tax, quantity, stock) {
     for(let i = 1; i <= quantity; i++) {
         stock -= 1
         if(quantity >= stock) {
+            canIbuyMore = "You cannot buy anymore books."
             break
-            canIbuyMore = "The book is out of stock!"
         }
     }
 
@@ -25,9 +25,9 @@ function book_purchase(title, price, discount, tax, quantity, stock) {
     console.log(canIbuyMore)
 }
 
-book_purchase("Norwegian Woods", 100000, 20, 5)
+book_purchase("Norwegian Woods", 100000, 20, 5, 10, 9)
+book_purchase("Lelaki Harimau", 85000, 20, 5, 2, 20)
 
 
 
-// the task asks us to use bool
-// but there's no way in hell bool would be used in a function this simple.
+// the use of for loop was unnecessary but whatever.
