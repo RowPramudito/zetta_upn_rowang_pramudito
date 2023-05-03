@@ -9,11 +9,13 @@ function book_purchase(title, price, discount, tax, quantity, stock) {
     const amountTax = totalPrice * tax / 100
     let priceAfterTax = totalPrice + amountTax
 
-    let canIbuyMore = "You can still buy more books."
+    let stockMessage = "The book is still in stock."
+
+    stockTemp = stock
     for(let i = 1; i <= quantity; i++) {
-        stock -= 1
+        stockTemp -= 1
         if(quantity >= stock) {
-            canIbuyMore = "You cannot buy anymore books."
+            stockMessage = "The book is run out of stock. \nYou can only purchase " + stock + " books."
             break
         }
     }
@@ -24,12 +26,13 @@ function book_purchase(title, price, discount, tax, quantity, stock) {
     console.log("Price after discount : " + priceAfterDiscount)
     console.log("Quantity             : " + quantity + "\n")
 
-    console.log("Amount of tax            : " + amountTax)
     console.log("Total Payment            : " + totalPrice)
+    console.log("Amount of tax            : " + amountTax)
     console.log("Total Payment after tax  : " + priceAfterTax + "\n")
     
-    console.log(canIbuyMore)
+    console.log(stockMessage + "\n")
 }
+
 
 book_purchase("Norwegian Woods", 100000, 20, 5, 10, 9)
 book_purchase("Lelaki Harimau", 85000, 20, 5, 2, 20)
